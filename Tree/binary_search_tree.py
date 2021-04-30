@@ -1,51 +1,4 @@
-class Node:
-    def __init__(self, data):
-        self.data = data
-        self.l_child = None
-        self.r_child = None
-
-    def in_order_traverse(self, nodes_array = []):
-        if(self.data == None):
-            return nodes_array
-
-        if(self.l_child != None):
-            nodes_array = self.l_child.in_order_traverse(nodes_array)
-
-        nodes_array.append(self.data)
-
-        if(self.r_child != None):
-            nodes_array = self.r_child.in_order_traverse(nodes_array)
-
-        return nodes_array
-
-    def pre_order_traverse(self, nodes_array = []):
-        if(self.data == None):
-            return nodes_array
-
-        nodes_array.append(self.data)
-
-        if(self.l_child != None):
-            nodes_array = self.l_child.pre_order_traverse(nodes_array)
-
-        if(self.r_child != None):
-            nodes_array = self.r_child.pre_order_traverse(nodes_array)
-
-        return nodes_array
-
-    def post_order_traverse(self, nodes_array = []):
-        if(self.data == None):
-            return nodes_array
-
-        if(self.l_child != None):
-            nodes_array = self.l_child.post_order_traverse(nodes_array)
-
-        if(self.r_child != None):
-            nodes_array = self.r_child.post_order_traverse(nodes_array)
-
-        nodes_array.append(self.data)
-
-        return nodes_array
-
+from Node import Node
 
 class Binary_Search_Tree:
     def __init__(self, compaire_function = None):
@@ -105,33 +58,3 @@ class Binary_Search_Tree:
                 ptr = ptr.l_child
 
         return None
-
-comparison_function = lambda a,b: a["value"] > b["value"]
-tree = Binary_Search_Tree(compaire_function = comparison_function)
-
-nodes_data = [{"key": "A", "value": 30}, 
-              {"key": "B", "value": 10},
-              {"key": "C", "value": 2},
-              {"key": "D", "value": -7},
-              {"key": "E", "value": 4},
-              {"key": "F", "value": 100},
-              {"key": "J", "value": 66},
-              ]
-
-for i in range(len(nodes_data)):
-    tree.insert(nodes_data[i])
-
-nodes_array = tree.root.post_order_traverse()
-print("***post_order***")
-for i in range(len(nodes_array)):
-    print(nodes_array[i]["key"])
-
-print("***pre_order***")
-nodes_array = tree.root.pre_order_traverse()
-for i in range(len(nodes_array)):
-    print(nodes_array[i]["key"])
-
-print("***in_order***")
-nodes_array = tree.root.in_order_traverse()
-for i in range(len(nodes_array)):
-    print(nodes_array[i]["key"])
