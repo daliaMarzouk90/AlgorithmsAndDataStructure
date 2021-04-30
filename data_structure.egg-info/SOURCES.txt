@@ -1,0 +1,13 @@
+setup.cfg
+setup.py
+Algorithms/__init__.py
+Algorithms/postfix_evaluation.py
+data_structure.egg-info/PKG-INFO
+data_structure.egg-info/SOURCES.txt
+data_structure.egg-info/dependency_links.txt
+data_structure.egg-info/top_level.txt
+data_structures/__init__.py
+data_structures/doubly_linked_list.py
+data_structures/linked_list.py
+data_structures/stack_array.py
+data_structures/test.py
